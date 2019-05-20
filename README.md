@@ -1,6 +1,6 @@
 # tilde.town
 
-This is personal repo for my tilde.town projects
+This is my personal repo for tilde.town projects
 
 http://tilde.town/~mozz
 
