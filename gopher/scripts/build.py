@@ -19,12 +19,11 @@ width = 60
 max_section_lines = 100
 build_target = os.path.abspath('../public')
 title = 'All You Love Will Be Carried Away'
-author = 'By Steven King'
 
 # Use `par` to format the story because it does full-width
 # justification better than python's textwrap
 cmd = os.popen(f'par -j1 -w{width} < fulltext.txt')
-fulltext = cmd.read()
+fulltext = cmd.read().strip()
 
 # Use `wc` to get the word count
 cmd = os.popen('wc -w < fulltext.txt')
@@ -45,8 +44,9 @@ for i, section in enumerate(sections, start=1):
         dir('Information (tilde.town/~mozz/index)', 'index'),
         info(''),
         info(title.center(width)),
-        info(author.center(width)),
-        info(f'(Part {i} of {len(sections)})'.center(width)),
+        info('By Steven King'.center(width)),
+        info(''),
+        info(f'(part {i} of {len(sections)})'.center(width)),
         info('')]
 
     lines.extend(map(info, section))
@@ -70,14 +70,17 @@ lines = [
     info('A tiny literature service'),
     info(''),
     info(title),
-    info(author),
-    info('Originally published in the New Yorker, 2001'),
+    info('By Steven King (2001)'),
     info(f'({word_count} words)'),
     info(''),
     info('[Index]')]
 lines.extend([
     dir(f'{title} (Part {i} of {len(sections)})', f'p{i}')
     for i, _ in enumerate(sections, start=1)])
+lines.extend([
+    info(''),
+    info('Have a nice day.'),
+])
 
 path = os.path.join(build_target, 'index')
 os.makedirs(path, exist_ok=True)
