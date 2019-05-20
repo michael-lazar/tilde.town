@@ -42,7 +42,7 @@ for paragraph in fulltext.split('\n\n'):
 # Build the gophermaps for the story sections
 for i, section in enumerate(sections, start=1):
     lines = [
-        dir('tilde.town/~mozz (information)', 'index'),
+        dir('Information (tilde.town/~mozz/index)', 'index'),
         info(''),
         info(title.center(width)),
         info(author.center(width)),
@@ -66,20 +66,18 @@ for i, section in enumerate(sections, start=1):
 
 # Build the gophermap for the index page
 lines = [
-    dir('tilde.town/~mozz', 'index'),
-    info('"An itty-bitty literature portal"'),
+    dir('Information (tilde.town/~mozz/index)', 'index'),
+    info('A tiny literature service'),
     info(''),
     info(title),
     info(author),
+    info('Originally published in the New Yorker, 2001'),
     info(f'({word_count} words)'),
     info(''),
-    info('[index]')]
+    info('[Index]')]
 lines.extend([
     dir(f'{title} (Part {i} of {len(sections)})', f'p{i}')
     for i, _ in enumerate(sections, start=1)])
-lines.extend([
-    info(''),
-    '1visit my other gopherhole at mozz.us\t/\tmozz.us\t70'])
 
 path = os.path.join(build_target, 'index')
 os.makedirs(path, exist_ok=True)
