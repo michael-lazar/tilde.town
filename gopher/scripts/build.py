@@ -92,7 +92,7 @@ lines = (
         for i, _ in enumerate(sections, start=1)
     ] + [
         info(''),
-        info('[Plain Text]'),
+        info('[Files]'),
     ] + [
         file(f'part_{i}.txt', f'part_{i}.txt')
         for i, _ in enumerate(sections, start=1)
