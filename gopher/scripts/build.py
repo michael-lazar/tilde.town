@@ -2,7 +2,6 @@
 """
 Build script for gopher://tilde.town/~mozz
 """
-
 import os
 import shutil
 
@@ -16,7 +15,7 @@ def dir(text, selector):
 
 
 def file(text, selector):
-    return f'0{text}\t/~mozz/{selector}\ttilde.town\t70'
+    return f'0{text}\t/~mozz/files/{selector}\ttilde.town\t70'
 
 
 width = 60
@@ -46,7 +45,6 @@ for paragraph in fulltext.split('\n\n'):
 
 # Write each section to a separate file + gophermap
 for i, section in enumerate(sections, start=1):
-
     header = [
         '', title.center(width), f'{author}'.center(width), '',
         f'(part {i} of {len(sections)})'.center(width), '']
@@ -68,13 +66,14 @@ for i, section in enumerate(sections, start=1):
     with open(filename, 'w') as fp:
         fp.write('\r\n'.join(lines))
 
-    # Write the plaintext file to /files/p{i}.txt
+    # Write the plaintext file to /files/part_{i}.txt
     path = os.path.join(build_target, 'files')
     os.makedirs(path, exist_ok=True)
-    filename = os.path.join(path, f'p{i}.txt')
+    filename = os.path.join(path, f'part_{i}.txt')
     print(f'Writing {filename}')
     with open(filename, 'w') as fp:
-        fp.write('\r\n'.join(header) + '\r\n')
+        fp.write('\r\n'.join(header))
+        fp.write('\r\n')
         fp.write('\r\n'.join(section))
 
 # Build the gophermap for the index page
@@ -93,14 +92,14 @@ lines = (
         for i, _ in enumerate(sections, start=1)
     ] + [
         info(''),
-        info('[Text Files]'),
+        info('[Plain Text]'),
     ] + [
-        file(f'{title} (Part {i} of {len(sections)})', f'files/p{i}.txt')
+        file(f'part_{i}.txt', f'part_{i}.txt')
         for i, _ in enumerate(sections, start=1)
     ] + [
         info(''),
         info('[Source]'),
-        file(f'{book_file}', f'files/{book_file}'),
+        file(f'{book_file}', f'{book_file}'),
         info(''),
         info('Have a nice day.'),
     ]
