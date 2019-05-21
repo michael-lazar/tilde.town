@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    background-color:pink;
+    font-family: courier, sans-serif;
+    text-align: center;
+}
+.section {
+    margin-bottom: 100px;
+}
+#title-block {
+    color: white;
+    padding-left: 10px;
+    background-color: darkmagenta;
+    text-align: left;
+}
+#succumb h1 {
+    font-style: italic;
+    color: red;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 4rem;
+}
+#succumb div {
+    padding-bottom: 20px;
+}
+#feels a {
+    font-size: 8pt;
+}
