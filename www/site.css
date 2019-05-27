@@ -1,27 +1,51 @@
 body {
-    margin: 0;
-    background-color:pink;
-    font-family: courier, sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
     text-align: center;
+	color: #fff;
+	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
 }
-.section {
-    margin-bottom: 100px;
+@-webkit-keyframes Gradient {
+	0% {background-position: 0% 50%}
+	50% {background-position: 100% 50%}
+	100% {background-position: 0% 50%}
 }
-#title-block {
-    color: white;
-    padding-left: 10px;
-    background-color: darkmagenta;
-    text-align: left;
+@-moz-keyframes Gradient {
+	0% {background-position: 0% 50%}
+	50% {background-position: 100% 50%}
+	100% {background-position: 0% 50%}
 }
-#succumb h1 {
-    font-style: italic;
-    color: red;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 4rem;
+@keyframes Gradient {
+	0% {background-position: 0% 50%}
+	50% {background-position: 100% 50%}
+	100% {background-position: 0% 50%}
 }
-#succumb div {
-    padding-bottom: 20px;
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-#feels a {
-    font-size: 8pt;
+.item {
+    margin: 20px auto;
+}
+.item iframe {
+    max-width: 100%;
+}
+.item img {
+    max-width: 100%;
+    width: 640px;
+    height: 360px;
+}
+#tilde_ring {
+    max-width: 95%;
+    padding: 5px;
+    width: 640px;
+    color: black;
+    background-color: white;
+    border-radius: 10px;
 }
