@@ -44,16 +44,14 @@ body {
 	color: red;
 	margin: 0 auto;
 	max-width: 640px;
-
+	text-shadow: 4px 4px 0 yellow;
 }
 #blog a {
 	font-family: hacked, sans-serif;
 	font-size: 100px;
 	font-style: normal;
-	color: yellow;
-}
-#blog a:visited {
 	color: greenyellow;
+	text-decoration: none;
 }
 .item {
     margin: 20px auto;
